@@ -1,27 +1,35 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ExcerciseSchema = new Schema({
+const ExerciseSchema = new Schema({
     type: {
-        type: String
+        type: String,
+        required: true
     },
     name: {
-        type: String
+        type: String,
+        required: true
     },
     duration: {
-        type: Number
+        type: Number,
+        required: true
     },
     weight: {
-        type: Number
+        type: Number,
+        required: true
     },
     reps: {
-        type: Number
+        type: Number,
+        required: true,
+        min: [1, "Can't have less than 1 rep"]
     },
     sets: {
-        type: Number
+        type: Number,
+        required: true,
+        min: [1, "Can't have less than 1 set"]
     }
 });
 
-const Excercise = mongoose.model("Excercise", ExcerciseSchema);
+const Exercise = mongoose.model("Exercise", ExerciseSchema);
 
-module.exports = Excercise;
+module.exports = Exercise;

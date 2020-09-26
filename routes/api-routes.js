@@ -13,15 +13,21 @@ router.get('/api/workouts', (req, res) => {
 });
 
 router.get('/api/workouts/range', (req, res) => {
-    
+
 });
 
 router.put('/api/workouts/:id', (req, res) => {
-
+    
 });
 
 router.post('/api/workouts', (req, res) => {
-
+    db.Workout.create(req.body, (err, workouts) => {
+        if(err) {
+            res.status(400).send(err);
+        } else {
+            res.json(workouts);
+        }
+    });
 });
 
 

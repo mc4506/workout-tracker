@@ -2,9 +2,9 @@
 
 ## Description
 
-Workout Tracker that utilizes MOngoDB database to track a user's daily exercises such as bench presses or running. Weekly workout stats are charted using Chart.js. 
+Workout Tracker that utilizes MongoDB database to track a user's daily exercises such as bench presses or running. Weekly workout stats are charted using Chart.js. 
 
-Deployed Site: 
+Deployed Site: <https://pure-dusk-99461.herokuapp.com/`>
 
 ## Table of Contents
 

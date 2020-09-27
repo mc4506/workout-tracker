@@ -21,7 +21,8 @@ router.put('/api/workouts/:id', (req, res) => {
 });
 
 router.post('/api/workouts', (req, res) => {
-    db.Workout.create(req.body, (err, workouts) => {
+    const day = new Date();
+    db.Workout.create( {day: day, exercises: []}, (err, workouts) => {
         if(err) {
             res.status(400).send(err);
         } else {

@@ -26,20 +26,11 @@ router.get('/api/workouts/range', (req, res) => {
 
 router.put('/api/workouts/:id', (req, res) => {
     // find workout record. and push new exercise object into a new exercise array. Update record with new exercise array.
-    Workout.findOne({_id: req.params.id}, (err, workout) => {
+    Workout.findOneAndUpdate({_id: req.params.id}, {$push: {exercises: req.body}}, (err, workout) => {
         if(err) {
             res.status(400).send(err);
         } else {
-            let exercises = (workout.exercises === null) ?  [] : workout.exercises;
-            exercises.push(req.body);
-
-            Workout.updateOne({_id: req.params.id}, {exercises: exercises}, (err, workouts) => {
-                if(err) {
-                    res.status(400).send(err);
-                } else {
-                    res.json(workouts);
-                };
-            });
+            res.json(workout);
         };
     });
 });
